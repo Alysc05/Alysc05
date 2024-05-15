@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<style>
+    header, footer, nav {
+      text-align: center;
+      padding: 10px; 
+      margin: 10px;
+    }
+    
+</style>  
+
+<style> 
+  #back-to-top-btn { /* 回首頁 */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    cursor: pointer;
+    width: 80px; /* 設置按鈕寬度 */
+  height: auto; /* 高度自動調整 */
+  }
+  </style>
+  <style>/* 音樂 */
+#music-control {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 9999;
+  width: 80px; /* 設置按鈕寬度 */
+  height: auto; /* 高度自動調整 */
+}
+</style>
+
+<style>
+  #mouse-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* 讓圖片不會影響滑鼠事件 */
+  }
+  
+  #mouse-img {
+    position: absolute;
+    width: 50px; /* 圖片寬度 */
+    height: auto;
+  }
+  </style>
+
+
+<html lang="zh-tw">
+  <head>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="My portfolio" content="width=device-width,user-scalable=no,maximum-scale=1" />
+    <!--出現在搜尋結果及Facebook的標題-->
+    <title>My portfolio </title>
+    <meta property="My portfolio" content="My portfolio"/>
+    <!--出現在搜尋結果及Facebook的敘述-->
+    <meta name="description" content="My portfolio">
+    <meta property="og:description" content="My portfolio"/>
+    <!--出現在Facebook的連結-->
+    <meta property="og:url" content="https://unclewes.github.io/unclewes/"/>
+    <!--出現在Facebook的圖片-->
+    <meta property="og:image" content="https://unclewes.github.io/unclewes/assets/img/seo/facebook.png"/>
+    <link rel="stylesheet" media="all" type="text/css" href="assets/css/temp.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="assets/css/smart.css" />
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/plugin/swipebox/css/swipebox.css">
+    <link rel="stylesheet" href="assets/plugin/drawer/css/drawer.css">
+    <script type="text/javascript" src="assets/js/jquery-latest.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="assets/plugin/swipebox/js/ios-orientationchange-fix.js"></script>
+    <script src="assets/plugin/swipebox/js/jquery.swipebox.js"></script>
+    <script src="assets/plugin/iScroll/iscroll-min.js"></script>
+    <script src="assets/plugin/bootstrap.dropdown/dropdown.min.js"></script>
+    <script src="assets/plugin/drawer/js/jquery.drawer.min.js"></script>
+    <script type="text/javascript">
+      WebFontConfig = {google: { families: [ 'Josefin+Sans::latin' ] }};
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+    <script type="text/javascript">
+      $('head').append('<style type="text/css">#container { display: none; } #fade, #loader { display: block; }</style>');jQuery.event.add(window,"load",function() {var pageH = $("#container").height();$("#fade").css("height",pageH).delay(900).fadeOut(800);$("#loader").delay(600).fadeOut(300);$("#container").css("display", "block");});
+    </script>
+  </head>
+
+  <body class="home page" style="background-color:#17252A" > <!-- 背景顏色  -->
+    <!-- <font color="#cfc9bc">字體顏色  -->
+
+   
+      <div id="mouse-container"> <!-- 滑鼠  -->
+        <img id="mouse-img" src="assets/img/profile/spo.png" alt="mouse">
+        <script>
+          document.addEventListener('mousemove', function(e) {
+            var mouseImg = document.getElementById('mouse-img');
+            
+            var mouseX = e.clientX; // 獲取滑鼠的X座標
+            var mouseY = e.clientY; // 獲取滑鼠的Y座標
+            
+            // 設置圖片的位置
+            mouseImg.style.left = mouseX - mouseImg.width / 2 + 'px';
+            mouseImg.style.top = mouseY - mouseImg.height / 2 + 'px';
+          });
+          </script>
+      </div>
+
+    <div id="loader" >
+      <img src="assets/img/welcome/splacut_3.gif" alt="Loading..." /> <!-- 歡迎畫面的圖 -->
+      
+    </div>
+
+
+    <div id="fade"></div>
+    <div id="container">
+      <header>
+        <div class="drawer drawer-right">
+          <button  class="drawer-toggle drawer-hamburger">
+            <span class="sr-only">toggle navigation</span>
+            <span class="drawer-hamburger-icon"></span>
+            <p>MENU</p>
+          </button>
+          <div class="drawer-main drawer-default">
+            <!-- 右上角選單 -->
+            <nav class="drawer-nav" role="navigation">
+              <ul class="nav drawer-nav-list">
+                <!-- 新增選單請從這裡開始複製 -->
+                <li><a href="index.html">首頁</a></li>
+                <!-- 新增選單複製到這裡結束 -->
+                <li><a href="#gallery">作品集</a></li>
+                <li><a href="#profile">個人檔案</a></li>
+                <li><a href="#contact">聯絡我</a></li>
+                <!--新增選單請從這裡開始貼上 -->
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+
+        <img id="back-to-top-btn" src="assets/img/profile/back to top.png" alt="Back to Top" onclick="goToTop()"><!-- 回首頁的圖 -->
+        <script>
+        function goToTop() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }
+        </script>
+
+
+
+        <!-- 封面大圖 -->
+        
+        <div class="mainimg">
+          <h1>
+            <!-- 桌機用的圖 -->
+            <img class="pc_view"    src="assets/img/cover/portfolio - anime_1.gif">
+            <!-- 手機用的圖 -->
+            <img class="smart_view" src="assets/img/cover/cover_s.png">
+          </h1>
+        </div>
+      </header>
+      <div id="content">
+        <!-- Start 作品集區塊 -->
+        <section class="works" id="gallery">
+          <h2>
+          作品集 <!-- 標題 - 作品集 -->
+          </h2>
+          <div class="workspace">
+            <ul>
+              
+               <!-- 新增作品請從這裡開始複製 -->
+               <li>
+                <a rel="gallery-1" href="assets/img/gallery/平面設計/向量設計/bird.png" class="swipebox" title="布農族-紅嘴黑鵯的傳說故事"><!-- 相簿大圖 -->
+                  <figure>
+                   
+                    <img src="assets/img/gallery/平面設計/向量設計/bird_0.png" alt="" width="200" height="200" /> <!-- 相簿封面 -->
+                    <figcaption>
+                      <h3>平面設計</h3> <!-- 作品標題 -->
+                      <p>向量圖設計</p> <!-- 作品說明 -->
+                    </figcaption>
+                  </figure>
+                </a>
+        <!-- 相簿其他照片 -->
+                <a rel="gallery-1" href="assets/img/gallery/平面設計/向量設計/ks.png" class="swipebox" style="display:none;" title="高雄形象設計">
+                </a>
+                <a rel="gallery-1" href="assets/img/gallery/平面設計/向量設計/fish (1).png" class="swipebox" style="display:none;" title="失傳的鏢旗魚-1">
+                </a>
+        <!-- 相簿其他照片 -->
+                <a rel="gallery-1" href="assets/img/gallery/平面設計/向量設計/fish (2).png" class="swipebox" style="display:none;" title="失傳的鏢旗魚-2">
+                </a>
+        <!-- 相簿其他照片 -->
+         <!-- 相簿其他照片 -->
+         <a rel="gallery-1" href="assets/img/gallery/平面設計/向量設計/fish (3).png" class="swipebox" style="display:none;" title="失傳的鏢旗魚-3">
+        </a>
+<!-- 相簿其他照片 -->
+              </li>
+              <!-- 新增作品請複製到這裡結束 -->
+              <!-- 新增作品請從這裡開始複製 -->
+              <li>
+                <a rel="gallery-2" href="assets/img/gallery/海報設計/STA1.jpg" class="swipebox" title="專題主視覺"><!-- 相簿大圖 -->
+                  <figure>
+                    <img src="assets/img/gallery/海報設計/STA0.jpg" alt="" width="200" height="200" /> <!-- 相簿封面 -->
+                    <figcaption>
+                      <h3>平面設計</h3> <!-- 作品標題 -->
+                      <p>海報設計</p> <!-- 作品說明 -->
+                    </figcaption>
+                  </figure>
+                </a>
+        <!-- 相簿其他照片 -->
+                <a rel="gallery-2" href="assets/img/gallery/海報設計/台電千瓦設計投稿.png" class="swipebox" style="display:none;" title="台電千瓦設計">
+                </a>
+                <a rel="gallery-2" href="assets/img/gallery/海報設計/K1.jpg" class="swipebox" style="display:none;" title="客語社區規劃員培力工作坊">
+                </a>
+                <a rel="gallery-2" href="assets/img/gallery/海報設計/K2.jpg" class="swipebox" style="display:none;" title="客語社區規劃員培力工作坊-議程表">
+                </a>
+                <a rel="gallery-2" href="assets/img/gallery/海報設計/m1.jpg" class="swipebox" style="display:none;" title="台灣大富翁桌遊圖樣設計">
+                </a>
+         <a rel="gallery-2" href="assets/img/gallery/海報設計/m2.png" class="swipebox" style="display:none;" title="台灣大富翁桌遊卡牌設計">
+        </a>
+        <a rel="gallery-2" href="assets/img/gallery/海報設計/招生海報1.jpg" class="swipebox" style="display:none;" title="台東大學招生海報1">
+        </a>
+        <a rel="gallery-2" href="assets/img/gallery/海報設計/招生海報2.jpg" class="swipebox" style="display:none;" title="台東大學招生海報2">
+        </a>
+<!-- 相簿其他照片 -->
+              </li>
+              <!-- 新增作品請複製到這裡結束 -->
+              <!-- 新增作品請從這裡開始複製 -->
+              <li>
+                <a rel="gallery-3" href="assets/img/gallery/3D/sheep.jpg" class="swipebox" title="Nero"><!-- 相簿大圖 -->
+                  <figure>
+                    <img src="assets/img/gallery/3D/sheep0.jpg" alt="" width="200" height="200" /> <!-- 相簿封面 -->
+                    <figcaption>
+                      <h3>3D建模</h3> <!-- 作品標題 -->
+                      <p>角色</p> <!-- 作品說明 -->
+                    </figcaption>
+                  </figure>
+                </a>
+        <!-- 相簿其他照片 -->
+                <a rel="gallery-3" href="assets/img/gallery/3D/sheep2.jpg" class="swipebox" style="display:none;" title="Nero-設計理念">
+                </a>
+               
+        <!-- 相簿其他照片 -->
+                <a rel="gallery-3" href="assets/img/gallery/3D/bird.jpg" class="swipebox" style="display:none;" title="鳥人">
+                </a>
+        <!-- 相簿其他照片 -->
+         <!-- 相簿其他照片 -->
+         <a rel="gallery-3" href="assets/img/gallery/3D/bird2.png" class="swipebox" style="display:none;" title="鳥人">
+        </a>
+<!-- 相簿其他照片 -->
+<!-- 相簿其他照片 -->
+<a rel="gallery-3" href="assets/img/gallery/3D/bird3.jpg" class="swipebox" style="display:none;" title="鳥人2">
+</a>
+<!-- 相簿其他照片 -->
+              </li>
+              <!-- 新增作品請複製到這裡結束 -->
+                <!-- 新增作品請從這裡開始複製 -->
+              <li>
+                <a rel="gallery-4" href="assets/img/gallery/3D/noodle.jpg" class="swipebox" title="漂流麵店"><!-- 相簿大圖 -->
+                  <figure>
+                    <img src="assets/img/gallery/3D/3D場景.jpg" alt="" width="200" height="200" /> <!-- 相簿封面 -->
+                    <figcaption>
+                      <h3>3D建模</h3> <!-- 作品標題 -->
+                      <p>場景</p> <!-- 作品說明 -->
+                    </figcaption>
+                  </figure>
+                </a>
+        <!-- 相簿其他照片 -->
+                <a rel="gallery-4" href="assets/img/gallery/3D/noodle2.jpg" class="swipebox" style="display:none;" title="漂流麵店-設計理念">
+                </a>
+        <!-- 相簿其他照片 -->
+                <a rel="gallery-4" href="assets/img/gallery/3D/room.jpg" class="swipebox" style="display:none;" title="室內建模">
+                </a>
+        <!-- 相簿其他照片 -->
+         <!-- 相簿其他照片 -->
+         <a rel="gallery-4" href="assets/img/gallery/3D/room2.png" class="swipebox" style="display:none;" title="室內建模-設計理念">
+        </a>
+<!-- 相簿其他照片 -->
+              </li>
+              <!-- 新增作品請複製到這裡結束 -->
+ <!-- 新增作品請從這裡開始複製 -->
+ <li>
+  <a rel="gallery-5" href="assets/img/gallery/game/money/有錢能使鬼推磨.png" class="swipebox" title="有錢能使鬼推磨"><!-- 相簿大圖 -->
+    <figure>
+      <img src="assets/img/gallery/game/money/0lost.png" alt="" width="200" height="200" /> <!-- 相簿封面 -->
+      <figcaption>
+        <h3>遊戲美術設計</h3> <!-- 作品標題 -->
+        <p>場景&人物&導入動畫</p> <!-- 作品說明 -->
+      </figcaption>
+    </figure>
+  </a>
+<!-- 相簿其他照片 -->
+  <a rel="gallery-5" href="assets/img/gallery/game/money/ui.png" class="swipebox" style="display:none;" title="有錢能使鬼推磨-UI設計">
+  </a>
+  <a rel="gallery-5" href="assets/img/gallery/game/money/主角&鬼怪設定.png" class="swipebox" style="display:none;" title="有錢能使鬼推磨-主角&鬼怪設定">
+  </a>
+  <a rel="gallery-5" href="assets/img/gallery/game/money/角色動態設定.png" class="swipebox" style="display:none;" title="有錢能使鬼推磨-角色動態設定">
+  </a>
+  <a rel="gallery-5" href="assets/img/gallery/game/money/結局圖&封面圖片.png" class="swipebox" style="display:none;" title="有錢能使鬼推磨-結局圖&封面圖片設定">
+  </a>
+  <a rel="gallery-5" href="assets/img/gallery/game/BUNON/設定.png" class="swipebox" style="display:none;" title="布農說的秘密">
+  </a>
+  <a rel="gallery-5" href="assets/img/gallery/game/BUNON/角色動態設定.png" class="swipebox" style="display:none;" title="布農說的秘密-角色動態設定">
+  </a>
+  <a rel="gallery-5" href="assets/img/gallery/game/BUNON/道具、動物、場景設定.png" class="swipebox" style="display:none;" title="布農說的秘密-道具、動物、場景設定">
+  </a>
+  <a rel="gallery-5" href="assets/img/gallery/game/BUNON/結尾動畫製作.png" class="swipebox" style="display:none;" title="布農說的秘密-結尾動畫製作">
+  </a>
+</li>
+<!-- 新增作品請複製到這裡結束 -->
+<!-- 新增作品請從這裡開始複製 -->
+<li>
+  <a rel="gallery-6" href="assets/img/gallery/anime/變形動畫-strangle.jpg" class="swipebox" title="變形動畫-strangle"><!-- 相簿大圖 -->
+    <figure>
+      <img src="assets/img/gallery/anime/變形動畫-strangle0.png" alt="" width="200" height="200" /> <!-- 相簿封面 -->
+      <figcaption>
+        <h3>動畫</h3> <!-- 作品標題 -->
+        <p>人物&分鏡&原畫</p> <!-- 作品說明 -->
+      </figcaption>
+    </figure>
+  </a>
+<!-- 相簿其他照片 -->
+<a rel="gallery-6" href="assets/img/gallery/anime/分鏡短動畫.jpg" class="swipebox" style="display:none;" title="分鏡短動畫-小小冒險">
+</a>
+<a rel="gallery-6" href="assets/img/gallery/anime/祂與她/海報.png" class="swipebox" style="display:none;" title="祂與她">
+</a>
+  <a rel="gallery-6" href="assets/img/gallery/anime/祂與她/祂與她角色設計.png" class="swipebox" style="display:none;" title="祂與她-角色設計&動畫原畫">
+  </a>
+  <a rel="gallery-6" href="assets/img/gallery/anime/祂與她/動畫原畫.jpg" class="swipebox" style="display:none;" title="祂與她-角色設計&動畫原畫">
+  </a>
+  <a rel="gallery-6" href="assets/img/gallery/anime/月蘭香/角色設計.jpg" class="swipebox" style="display:none;" title="祂與她-角色設計&動畫原畫">
+  </a>
+  <a rel="gallery-6" href="assets/img/gallery/anime/月蘭香/動畫原畫.jpg" class="swipebox" style="display:none;" title="祂與她-角色設計&動畫原畫">
+  </a>
+  <a rel="gallery-6" href="assets/img/gallery/anime/月蘭香/動畫分鏡設計.jpg" class="swipebox" style="display:none;" title="祂與她-角色設計&動畫原畫">
+  </a>
+
+</li>
+<!-- 新增作品請複製到這裡結束 -->
+               <!-- 新增作品請從這裡開始複製 -->
+               <li>
+                <a rel="gallery-7" href="assets/img/gallery/sun.jpg" class="swipebox" title="sun"><!-- 相簿大圖 -->
+                  <figure>
+                    <img src="assets/img/gallery/1sun.png" alt="" width="200" height="200" /> <!-- 相簿封面 -->
+                    <figcaption>
+                      <h3>攝影作品</h3> <!-- 作品標題 -->
+                      <p>風景&人像&商品</p> <!-- 作品說明 -->
+                    </figcaption>
+                  </figure>
+                </a>
+        <!-- 相簿其他照片 -->
+                <a rel="gallery-7" href="assets/img/gallery/sunsa.jpg" class="swipebox" style="display:none;" title="">
+                </a>
+        <!-- 相簿其他照片 -->
+                <a rel="gallery-7" href="assets/img/gallery/20231027_124936.jpg" class="swipebox" style="display:none;" title="">
+                </a>
+        <!-- 相簿其他照片 -->
+                <a rel="gallery-7" href="assets/img/gallery/1696035328030.jpg" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-7" href="assets/img/gallery/flower.jpg" class="swipebox" style="display:none;" title="flower">
+                </a>
+                <a rel="gallery-7" href="assets/img/gallery/IMG_20230930_103128_823.jpg" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-7" href="assets/img/gallery/攝影/_DSC6660.JPG" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-7" href="assets/img/gallery/攝影/_DSC6665.JPG" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-7" href="assets/img/gallery/攝影/_DSC6728.JPG" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-7" href="assets/img/gallery/攝影/_DSC6784.JPG" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-7" href="assets/img/gallery/攝影/_DSC6795.JPG" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-7" href="assets/img/gallery/攝影/20111111-8.jpg" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-7" href="assets/img/gallery/攝影/20111111-4.jpg" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-7" href="assets/img/gallery/攝影/訪談2.JPG" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-7" href="assets/img/gallery/攝影/訪談.JPG" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-7" href="assets/img/gallery/攝影/都蘭 (1).jpg" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-7" href="assets/img/gallery/攝影/都蘭 (1) (中).jpg" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-7" href="assets/img/gallery/攝影/都蘭 (2).jpg" class="swipebox" style="display:none;" title="">
+                </a>
+               
+              </li>
+              <!-- 新增作品請複製到這裡結束 -->
+              <!-- 新增作品請從這裡開始複製 -->
+              <li>
+                <a rel="gallery-8" href="assets/img/gallery/插圖設計/myoc.png" class="swipebox" title="插圖設計"><!-- 相簿大圖 -->
+                  <figure>
+                    <img src="assets/img/gallery/插圖設計/myoc0.png" alt="" width="200" height="200" /> <!-- 相簿封面 -->
+                    <figcaption>
+                      <h3>平面設計</h3> <!-- 作品標題 -->
+                      <p>插圖設計</p> <!-- 作品說明 -->
+                    </figcaption>
+                  </figure>
+                </a>
+        <!-- 相簿其他照片 -->
+        <a rel="gallery-8" href="assets/img/cover/cover_l (2).jpg.png" class="swipebox" style="display:none;" title="封面設計">
+        </a>
+        <a rel="gallery-8" href="assets/img/gallery/插圖設計/Fish.png" class="swipebox" style="display:none;" title="inside">
+        </a>
+                <a rel="gallery-8" href="assets/img/gallery/插圖設計/me.png" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-8" href="assets/img/gallery/插圖設計/book.png" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-8" href="assets/img/gallery/插圖設計/spla 3.png" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-8" href="assets/img/gallery/插圖設計/nero.png" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-8" href="assets/img/gallery/插圖設計/link.png" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-8" href="assets/img/gallery/插圖設計/toya2023.jpg" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-8" href="assets/img/gallery/插圖設計/xmas2023card.png" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-8" href="assets/img/gallery/插圖設計/2022xmas.png" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-8" href="assets/img/gallery/插圖設計/箱庭的人偶劇.jpg" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-8" href="assets/img/gallery/插圖設計/rab.jpg" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-8" href="assets/img/gallery/插圖設計/splacut.png" class="swipebox" style="display:none;" title="">
+                </a>
+                <a rel="gallery-8" href="assets/img/gallery/插圖設計/yin20230.jpg" class="swipebox" style="display:none;" title="">
+                </a>
+
+                
+<!-- 相簿其他照片 -->
+              </li>
+              <!-- 新增作品請複製到這裡結束 -->
+              <!--新增作品請從這裡開始貼上 -->
+             <h2>作品影片展示</h2> 
+             <a href="index 2.html"><img id="back-control" src="assets/img/profile/youtube2.png" width="150px" height="auto"></a>
+            <br><p>Click↗</p>
+            </ul>
+          </div>
+        </section>
+        <!-- END 作品集區塊 -->
+
+        <!-- Start 個人資料區塊 -->
+        <section id="profile" class="profile" style="background-image:url('assets/img/cover/cb1\ \(2\).png') ;">
+          <h2>
+          個人檔案
+          </h2> <!-- 標題 - 個人資料 -->
+         
+          <div class="profile_text">
+            <div class="profile_head">
+              <img class="left" src="assets/img/profile/profile2.png" alt="uncle wes" width="150" height="150" /> <!-- 大頭照片 -->
+              <p class="right">
+                <strong>
+                  <ruby>柯芝迎
+                    <rt>ALY</rt>
+                </ruby>
+                <!-- 姓名 -->
+                </strong>
+                <br>
+                <!-- 職稱 -->
+                <br>
+                2003 年 5月 13日 <!-- 生日 -->
+              </p>
+            </div>
+            <!-- 社群網站連結 - 個人資料 -->
+            <div class="profile_bottom">
+              <p>
+                <ul>
+                  <li>
+                    <!-- facebook -->
+                    <a href="https://www.facebook.com/profile.php?id=100005990384156" target="_blank">
+                      <img src="assets/img/profile/facebook.png" width="32">
+                    </a>
+					<!-- youtube -->
+                    <a href="https://www.youtube.com" target="_blank">
+                      <img src="assets/img/profile/youtube.png" width="32">
+                    </a>
+                     <!-- ig -->
+                     <a href="https://www.instagram.com/aly_0513/" target="_blank">
+                      <img src="assets/img/profile/instagram.png" width="32">
+                    </a>
+                  </li>
+                </ul>
+              <p>
+            </div>
+
+            <!-- 自我簡介 -->
+            <div class="profile_bottom">
+              <p>
+                目前於台東大學數位媒體與文教產業學系就讀
+                <br>服務項目：平面設計、插畫設計、3D建模、動畫、影片剪輯、live2D建模
+                <br><br>連絡電話：0912513270
+                <br>E-mail：11017122gm.nttu.edu.tw
+              </p>
+            </div>
+
+            <!-- 專長技能 -->
+            <div class="profile_awards">
+              <!-- 標題 -->
+              <h3>
+              專業技能
+              </h3>
+              <p>
+                HTML
+                <br>平面設計
+                 <br>插畫設計
+                <br>3D角色/場景建模
+                 <br>影片剪輯
+                <!-- 新增專業技能請從這裡開始貼上 -->
+              </p>
+            </div>
+            <!-- 經歷 -->
+            <div class="profile_awards" >
+              <!-- 標題 -->
+              <h3>
+              工作經歷
+              </h3>
+              <!-- 新增經歷請從這裡開始複製 -->
+              <p>2023年2月 – 開始<br> <!-- 時間 -->
+                皂浴泡泡創意無限公司<br> <!-- 公司名稱 -->
+                藝術總監 <!-- 職稱 -->
+              </p>
+            
+              <!-- 新增經歷請複製到這裡結束 -->
+
+
+              <!-- 新增經歷請從這裡開始貼上 -->
+            </div>
+
+            <div class="profile_awards">
+              <!-- 標題 -->
+              <h3>
+             軟體
+              </h3>
+              <p>
+               Ps / Ai / CSP / CubismEditor4
+               <br>Maya / Zbrush / Blender / substance painter / unfold 3d
+               <br> Ae / Pr
+               <br>touchdesigner  / Resolume Arena / Unity
+              </p>
+            </div>
+
+          </div>
+        </section>
+        <!-- END 個人資料區塊 -->
+
+        <!-- Start 歷史紀錄區塊 -->
+        <section class="profile" id="works" style="background-image:url('assets/img/cover/cb3.png') ;">
+          <!-- 標題 -->
+          <h2>
+          歷史紀錄
+          </h2>
+          <div class="workspace02">
+            
+            <ul>
+              <!-- 新增歷史紀錄請從這裡開始複製 -->
+              <li>
+                <span style="background-color:#eea51f" >
+                  <font color="#1e1f2b"><!-- 字體顏色  -->
+                獲獎
+                </span>
+                <font color="#cfc9bc"><!-- 字體顏色  -->
+                金樹梅最佳點陣繪圖
+              </li>
+              <!-- 新增歷史紀錄請複製到這裡結束 -->
+              <li>
+                <span style="background-color:#eea51f" >
+                  <font color="#1e1f2b"><!-- 字體顏色  -->
+                獲獎
+                </span>
+                <font color="#cfc9bc"><!-- 字體顏色  -->
+                金樹梅最佳設計繪畫
+              </li>
+              <li>
+                <span style="background-color:#eea51f" >
+                  <font color="#1e1f2b"><!-- 字體顏色  -->
+                獲獎
+                </span>
+                <font color="#cfc9bc"><!-- 字體顏色  -->
+                金樹梅最佳視覺設計
+              </li>
+              <li>
+                <span style="background-color:#eea51f" >
+                  <font color="#1e1f2b"><!-- 字體顏色  -->
+                獲獎
+                </span>
+                <font color="#cfc9bc"><!-- 字體顏色  -->
+                金樹梅最佳文創設計
+              </li>
+              <li>
+                <span style="background-color:#eea51f" >
+                  <font color="#1e1f2b"><!-- 字體顏色  -->
+                獲獎
+                </span>
+                <font color="#cfc9bc"><!-- 字體顏色  -->
+                金樹梅最佳3D角色設計
+              </li>
+              <li>
+                <span style="background-color:#eea51f" >
+                  <font color="#1e1f2b"><!-- 字體顏色  -->
+                獲獎
+                </span>
+                <font color="#cfc9bc"><!-- 字體顏色  -->
+                  金樹梅最佳色感
+              </li>
+              <li>
+                <span style="background-color:#eea51f" >
+                  <font color="#1e1f2b"><!-- 字體顏色  -->
+                獲獎
+                </span>
+                <font color="#cfc9bc"><!-- 字體顏色  -->
+                金樹梅最佳APP設計
+              </li>
+              <li>
+                <span style="background-color:#eea51f" >
+                  <font color="#1e1f2b"><!-- 字體顏色  -->
+                獲獎
+                </span>
+                
+                <font color="#cfc9bc"><!-- 字體顏色  -->
+                  2023國立臺東大學三創競賽第一名
+              </li>
+              <li>
+                <span style="background-color:#eea51f" >
+                  <font color="#1e1f2b"><!-- 字體顏色  -->
+                獲獎
+                </span>
+                <font color="#cfc9bc"><!-- 字體顏色  -->
+                  2023第二屆全國SDGs創新創意競賽 新創產品組 第二名
+              </li>
+              <li>
+                <span style="background-color:#eea51f" >
+                  <font color="#1e1f2b"><!-- 字體顏色  -->
+                獲獎
+                </span>
+                <font color="#cfc9bc"><!-- 字體顏色  -->
+                  2023第十屆Mata獎大專影音競賽組佳作
+              </li>
+              <!-- 新增歷史紀錄請從這裡開始貼上 -->
+            </ul>
+          </div>
+        </section>
+        <!-- END 歷史紀錄區塊 -->
+
+        <!-- Start 聯絡我 / Google 表單 -->
+        <section class="contact" id="contact">
+          
+          <!-- 標題 -->
+          <h2>
+          聯絡我
+          </h2>
+          <div class="contact_space">
+            <div>
+              <!-- 插入 Google 表單的嵌入程式碼 -->
+              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScdQklZIL_PHVSVsAP0pmGXLiy-Z2p_doQSjnhs4nrmvbg1iQ/viewform?embedded=true" width="800" height="686" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+            </div>
+
+<footer >
+        <!-- 版權聲明 -->
+        <p>
+          <font color="#cfc9bc"><!-- 字體顏色  -->
+        copyright © ALY.
+        </p>
+      </footer>
+    </div>
+
+   
+    <audio id="background-music"> <!-- 音樂  -->
+      <source src="assets/img/music/MUSICC.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    
+    <img id="music-control" src="assets/img/music/off.png" alt="Pause Music" onclick="toggleMusic()">
+    
+    <script>
+    var audio = document.getElementById("background-music");
+    var musicControl = document.getElementById("music-control");
+    
+    function toggleMusic() {
+      if (audio.paused) {
+        audio.play();
+        musicControl.src="assets/img/music/on.png"; // 切換為圖1
+      } else {
+        audio.pause();
+        musicControl.src="assets/img/music/off.png"; // 切換為圖2
+      }
+    }
+    </script>
+
+
+
+  </body>
+
+
+  <script>$(function(){$(".drawer").drawer();$( '.swipebox' ).swipebox();$('a[href^=#]').click(function() {var speed = 800;var href= $(this).attr("href");var target = $(href == "#" || href == "" ? 'html' : href);var position = target.offset().top;$('body,html').animate({scrollTop:position}, speed, 'swing');return false;});});
+  </script>
+</html>

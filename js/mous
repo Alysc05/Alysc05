@@ -1,0 +1,18 @@
+document.addEventListener('mousemove', function(e) {
+    var mouseImg = document.getElementById('mouse-img');
+    var container = document.getElementById('container');
+    
+    var mouseX = e.clientX; // 獲取滑鼠的X座標
+    var mouseY = e.clientY; // 獲取滑鼠的Y座標
+    
+    // 設置圖片的位置
+    mouseImg.style.left = (mouseX - mouseImg.width / 2) + 'px';
+    mouseImg.style.top = (mouseY - mouseImg.height / 2) + 'px';
+    
+    // 如果超出容器範圍，隱藏圖片
+    if (mouseX < 0 || mouseY < 0 || mouseX > container.clientWidth || mouseY > container.clientHeight) {
+      mouseImg.style.display = 'none';
+    } else {
+      mouseImg.style.display = 'block';
+    }
+  });
